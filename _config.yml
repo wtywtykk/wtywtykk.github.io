@@ -1,7 +1,7 @@
 # Site settings
 title: wtywtykk
 description: wtywtykk的后院
-favicon: /assets/img/avatar.JPG
+favicon: /assets/img/avatar.jpg
 baseurl:
 url: https://wtywtykk.github.io
 rss_url:
@@ -10,7 +10,7 @@ rss_url:
 author: wtywtykk
 email: 163.wty@163.com
 github: wtywtykk
-gavatar: /assets/img/avatar.JPG
+gavatar: /assets/img/avatar.jpg
 issue: https://github.com/wtywtykk/wtywtykk.github.io/issues
 
 # Build settings
