@@ -1,3 +1,28 @@
+@font-face
+{
+	font-family: Input;
+	src: url('../fonts/Input-Regular_(InputMonoCondensed-Regular).ttf');
+}
+@font-face
+{
+	font-family: Input;
+	src: url('../fonts/Input-Bold_(InputMonoCondensed-Bold).ttf');
+	font-weight:bold;
+}
+@font-face
+{
+	font-family: Input;
+	src: url('../fonts/Input-Italic_(InputMonoCondensed-Italic).ttf');
+	font-style:italic;
+}
+@font-face
+{
+	font-family: Input;
+	src: url('../fonts/Input-BoldItalic_(InputMonoCondensed-BoldItalic).ttf');
+	font-weight:bold;
+	font-style:italic;
+}
+
 body {
 	background-image: url(/assets/img/bg.jpg);
 }
@@ -235,4 +260,8 @@ div.authorimage {
 	background-color: rgba(51, 123, 181, 0.6);
 	font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L",sans-serif;
 	margin-top: 40px;
+}
+
+.highlight pre code * {
+	font-family:Input !important;
 }
