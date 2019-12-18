@@ -12,8 +12,9 @@ excerpt_separator: "在我"
 在我的一个STM32程序里面，用内部Flash保存配置设置。但是出现了一定几率把自己刷死的情况。
 
 用STLINK读取被刷死的Flash内容，可以看到Flash的前4个字节被写成了0。Flash的前4字节保存的是初始化时候的堆栈地址，写成0之后无法操作堆栈，自然不能启动。
+<img src="/postimg/2019-12-14-STM32-Flash-Error-Readback.png" width="100%" />
 
-但是看代码这个问题无法解释，在写这段代码的时候就感觉Flash操作比较危险，所以加了很多的校验，不应该是地址写错导致的。代码差不多下面这样：
+显然问题跟操作Flash的代码有关，相关代码差不多下面这样：
 
 ```c
 bool FlashStorage_FlashProgramSafe(uint32_t TypeProgram, uint32_t Address, uint64_t Data)
@@ -51,7 +52,7 @@ bool FlashStorage_WriteNewBlockAndEraseOldBlock(uint8_t* NewBlock, uint8_t* NewD
 }
 ```
 
-不仅检查了0指针，还查了在不在指定范围内，写越界的情况怎么可能发生？
+但是看代码这个问题无法解释，在写这段代码的时候就感觉Flash操作比较危险，所以加了很多的校验，不仅检查了0指针，还查了在不在指定范围内，不应该是地址写错导致的。
 
 不过，看网上别人写的Flash操作，大部分关了中断，而官方手册并没有说这一点。
 
